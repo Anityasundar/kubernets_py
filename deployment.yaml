@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-site-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-site
+  template:
+    metadata:
+      labels:
+        app: python-site
+    spec:
+      containers:
+        - name: python-site
+          image: yourdockerhubusername/python-site
+          ports:
+            - containerPort: 5000
